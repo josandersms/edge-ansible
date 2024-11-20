@@ -33,7 +33,7 @@
   become: true
   become_user: "{{ edge_admin_username }}"
   become_method: su
-  become_flags: '-s /bin/sh'
+  become_flags: '-S /bin/sh'
   roles:
     - edge
 
