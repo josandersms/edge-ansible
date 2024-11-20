@@ -1,5 +1,5 @@
 - name: My first playbook
-  #hosts: edge
+  hosts: edge
   tasks:
     - name: Print message
       ansible.builtin.debug:
