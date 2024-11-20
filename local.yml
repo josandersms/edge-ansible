@@ -6,6 +6,13 @@
     - name: do stuff
       debug:
         msg: "{{ edge_admin_username }}"
+    - name: read file
+      debug:
+        msg: "the value of .bashrc is {{ lookup('ansible.builtin.file', '~/.bashrc') }}"
+    - name: display file contents
+      debug: var=item
+      with_file:
+        - "~/.bashrc"
 # - hosts: all
 #   tags: always
 #   become: true
