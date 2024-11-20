@@ -1,0 +1,11 @@
+---
+branch: main
+admin_user_name: "ecolab"
+ansible_cron_minute: "40"
+ssh_port: 22
+
+# platform-specific
+some_variable: true
+
+# server
+some_other_variable: true

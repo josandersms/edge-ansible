@@ -1,12 +1,12 @@
-mkdir ~/.kube
-sudo KUBECONFIG=~/.kube/config:/etc/rancher/k3s/k3s.yaml kubectl config view --flatten > ~/.kube/merged
-mv ~/.kube/merged ~/.kube/config
-chmod  0600 ~/.kube/config
-export KUBECONFIG=~/.kube/config
+mkdir /home/$ADMIN_USERNAME/.kube
+sudo KUBECONFIG=/home/$ADMIN_USERNAME/.kube/config:/etc/rancher/k3s/k3s.yaml kubectl config view --flatten > /home/$ADMIN_USERNAME/.kube/merged
+mv /home/$ADMIN_USERNAME/.kube/merged /home/$ADMIN_USERNAME/.kube/config
+chmod  0600 /home/$ADMIN_USERNAME/.kube/config
+export KUBECONFIG=/home/$ADMIN_USERNAME/.kube/config
 
 #switch to k3s context
 kubectl config use-context default
 sudo chmod 644 /etc/rancher/k3s/k3s.yaml
 
-echo "KUBECONFIG=~/.kube/config" >> ~/.bashrc
-source ~/.bashrc
+echo "KUBECONFIG=/home/$ADMIN_USERNAME/.kube/config" >> /home/$ADMIN_USERNAME/.bashrc
+source /home/$ADMIN_USERNAME/.bashrc
