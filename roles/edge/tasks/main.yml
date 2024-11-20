@@ -1,6 +1,4 @@
 ---
 - name: Import script tasks
-  debug:
-    msg: Importing scripts
   include_tasks:
     file: scripts.yml
