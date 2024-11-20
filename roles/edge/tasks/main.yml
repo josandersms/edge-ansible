@@ -1,2 +1,7 @@
-- block:
-  - import_tasks: scripts.yml
+- hosts: all
+  tasks:
+    - ansible.builtin.debug:
+        msg: Importing scripts
+
+    - name: Import script tasks
+      ansible.builtin.import_tasks: scripts.yml
