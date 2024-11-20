@@ -1,8 +1,10 @@
-- name: system setup | scripts | copy image_prep.sh script
-  tags: scripts
-  copy:
-    src: scripts/install-k3s.sh
-    dest: /usr/local/bin/install-k3s.sh
-    owner: root
-    group: root
-    mode: 0755
+- name: install k3s
+  ansible.builtin.script: ../files/scripts/install-k3s.sh
+# - name: system setup | edge | copy install-k3s.sh script
+#   tags: scripts
+#   copy:
+#     src: scripts/install-k3s.sh
+#     dest: /usr/local/bin/install-k3s.sh
+#     owner: root
+#     group: root
+#     mode: 0755
