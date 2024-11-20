@@ -9,4 +9,3 @@ kubectl config use-context default
 sudo chmod 644 /etc/rancher/k3s/k3s.yaml
 
 echo "KUBECONFIG=/home/$ADMIN_USERNAME/.kube/config" >> /home/$ADMIN_USERNAME/.bashrc
-source /home/$ADMIN_USERNAME/.bashrc
