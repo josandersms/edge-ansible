@@ -23,7 +23,6 @@
 #     - base
 
 - hosts: edge
-  tags: all
   become: true
   roles:
     - edge

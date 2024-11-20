@@ -1,0 +1,2 @@
+- block:
+  - import_tasks: tasks/scripts.yml
