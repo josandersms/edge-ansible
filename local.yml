@@ -16,11 +16,11 @@
       when: ansible_distribution in ["Debian", "Ubuntu"]
 
 # run roles
-- hosts: all
-  tags: base
-  become: true
-  roles:
-    - base
+# - hosts: all
+#   tags: base
+#   become: true
+#   roles:
+#     - base
 
 - hosts: edge
   tags: edge
