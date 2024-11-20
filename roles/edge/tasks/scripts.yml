@@ -1,2 +1,4 @@
 - name: install k3s
   ansible.builtin.script: ../files/scripts/install-k3s.sh
+- name: set kubeconfig
+  ansible.builtin.script: ../files/scripts/kubeconfig.sh
