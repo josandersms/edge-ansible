@@ -1,7 +1,7 @@
 - name: Copy .bashrc
   ansible.builtin.copy:
     src: files/misc/.bashrc
-    dest: ~/.bashrc
+    dest: "/home/{{ edge_admin_username }}/.bashrc"
     owner: "{{ edge_admin_username }}"
     group: "{{ edge_admin_username }}"
     mode: '0644'
