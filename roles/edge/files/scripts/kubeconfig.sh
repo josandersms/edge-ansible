@@ -1,5 +1,5 @@
-mkdir ~/.kube
-sudo KUBECONFIG=~/.kube/config:/etc/rancher/k3s/k3s.yaml kubectl config view --flatten > ~/.kube/merged
+mkdir /home/$ADMIN_USERNAME/.kube
+sudo KUBECONFIG=/home/$ADMIN_USERNAME/.kube/config:/etc/rancher/k3s/k3s.yaml kubectl config view --flatten > /home/$ADMIN_USERNAME/.kube/merged
 mv ~/.kube/merged ~/.kube/config
 chmod  0600 ~/.kube/config
 export KUBECONFIG=~/.kube/config
