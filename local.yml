@@ -1,9 +1,9 @@
 # tasks to complete before running roles
 
 
-- hosts: all
-  environment:
-    ADMIN_USERNAME: "{{ edge_admin_username }}"
+# - hosts: all
+#   environment:
+#     ADMIN_USERNAME: "{{ edge_admin_username }}"
 #   tasks:
 #     - name: do stuff
 #       debug:
