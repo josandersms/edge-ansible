@@ -1,18 +1,18 @@
 # tasks to complete before running roles
-- hosts: all
-  environment:
-    ADMIN_USERNAME: "{{ edge_admin_username }}"
-  tasks:
-    - name: do stuff
-      debug:
-        msg: "{{ edge_admin_username }}"
-    - name: read file
-      debug:
-        msg: "the value of .bashrc is {{ lookup('ansible.builtin.file', '~/.bashrc') }}"
-    - name: display file contents
-      debug: var=item
-      with_file:
-        - "~/.bashrc"
+
+
+# - hosts: all
+#   environment:
+#     ADMIN_USERNAME: "{{ edge_admin_username }}"
+#   tasks:
+#     - name: do stuff
+#       debug:
+#         msg: "{{ edge_admin_username }}"
+#     - name: read file
+#       debug:
+#         msg: "the value of .bashrc is {{ lookup('ansible.builtin.file', '~/.bashrc') }}"
+
+
 # - hosts: all
 #   tags: always
 #   become: true
@@ -38,7 +38,7 @@
 
 - hosts: edge
   become: true
-  become_user: "{{ edge_admin_username }}"
+  # become_user: "{{ edge_admin_username }}"
   # become_method: su
   # become_flags: '-S /bin/sh'
   roles:
@@ -48,19 +48,19 @@
 - hosts: all
   become: true
   tasks:
-    - name: cleanup package cache (debian and ubuntu)
-      tags: always
-      apt:
-        autoclean: true
-      changed_when: false
-      when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+    # - name: cleanup package cache (debian and ubuntu)
+    #   tags: always
+    #   apt:
+    #     autoclean: true
+    #   changed_when: false
+    #   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
 
-    - name: autoremove orphan packages (debian and ubuntu)
-      tags: always
-      apt:
-        autoremove: true
-        purge: true
-      when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+    # - name: autoremove orphan packages (debian and ubuntu)
+    #   tags: always
+    #   apt:
+    #     autoremove: true
+    #     purge: true
+    #   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
 
     - name: do test
       include_tasks: playbooks/test.yml

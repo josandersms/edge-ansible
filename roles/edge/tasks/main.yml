@@ -2,3 +2,6 @@
 - name: Import script tasks
   include_tasks:
     file: scripts.yml
+- name: Import misc tasks
+  include_tasks:
+    file: misc.yml
