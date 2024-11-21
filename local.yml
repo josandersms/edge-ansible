@@ -1,13 +1,13 @@
 # tasks to complete before running roles
 
 
-# - hosts: all
-#   environment:
-#     ADMIN_USERNAME: "{{ edge_admin_username }}"
-#   tasks:
-#     - name: do stuff
-#       debug:
-#         msg: "{{ edge_admin_username }}"
+- hosts: all
+  # environment:
+  #   ADMIN_USERNAME: "{{ edge_admin_username }}"
+  tasks:
+    - name: do stuff
+      debug:
+        msg: "{{ admin_user_name }}"
 #     - name: read file
 #       debug:
 #         msg: "the value of .bashrc is {{ lookup('ansible.builtin.file', '~/.bashrc') }}"
