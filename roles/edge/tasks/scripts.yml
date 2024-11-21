@@ -1,3 +1,5 @@
+- name: Pull Variables
+  ansible.builtin.include_vars: vars/all.yml
 - name: install k3s
   ansible.builtin.script: ../files/scripts/install-k3s.sh
 - name: set kubeconfig
