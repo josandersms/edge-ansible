@@ -1,46 +1,21 @@
 # tasks to complete before running roles
-
-
-# - hosts: all
-#   # environment:
-#   #   ADMIN_USERNAME: "{{ edge_admin_username }}"
-#   tasks:
-#     - name: do stuff
-#       debug:
-#         msg: "{{ admin_user_name }}"
-#     - name: read file
-#       debug:
-#         msg: "the value of .bashrc is {{ lookup('ansible.builtin.file', '~/.bashrc') }}"
-
-
-# - hosts: all
-#   tags: always
-#   become: true
-#   pre_tasks:
-#     - name: pre-run | update package cache (arch)
-#       tags: always
-#       pacman: update_cache=yes
-#       changed_when: False
-#       when: ansible_distribution == "Archlinux"
-
-#     - name: pre-run | update package cache (debian, etc)
-#       tags: always
-#       apt: update_cache=yes
-#       changed_when: False
-#       when: ansible_distribution in ["Debian", "Ubuntu"]
+- hosts: all
+  become: true
+  tags: always
+  pre_tasks:
+    - name: Sample pre-role task
+      debug:
+        msg: Pre role task executed
 
 # run roles
-# - hosts: all
-#   tags: base
-#   become: true
-#   roles:
-#     - base
+- hosts: all
+  # tags: base
+  become: true
+  roles:
+    - base
 
 - hosts: edge
   become: true
-  # become_user: "{{ edge_admin_username }}"
-  # become_method: su
-  # become_flags: '-S /bin/sh'
   roles:
     - edge
 
@@ -48,32 +23,6 @@
 - hosts: all
   become: true
   tasks:
-    # - name: cleanup package cache (debian and ubuntu)
-    #   tags: always
-    #   apt:
-    #     autoclean: true
-    #   changed_when: false
-    #   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
-
-    # - name: autoremove orphan packages (debian and ubuntu)
-    #   tags: always
-    #   apt:
-    #     autoremove: true
-    #     purge: true
-    #   when: ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
-
-    - name: do test
+    - name: Run test Playbook
       include_tasks: playbooks/test.yml
       tags: always
-  # - name: send completion alert
-  #   include_tasks: playbooks/send_completion_alert.yml
-  #   tags: always
-  #   when:
-  #     - task_failed is not defined
-
-  # - name: send failure alert
-  #   include_tasks: playbooks/send_failure_alert.yml
-  #   tags: always
-  #   when:
-  #     - task_failed is defined
-  #     - task_failed == true

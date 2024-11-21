@@ -5,4 +5,3 @@
 - name: Import misc tasks
   include_tasks:
     file: misc.yml
-
