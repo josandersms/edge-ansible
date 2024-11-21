@@ -5,3 +5,6 @@
 - name: Import misc tasks
   include_tasks:
     file: misc.yml
+- name: echo the var
+  debug:
+    msg: "{{ admin_user_name }}"
