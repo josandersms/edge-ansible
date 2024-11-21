@@ -1,1 +1,4 @@
 ---
+- name: Import script tasks
+  include_tasks:
+    file: scripts.yml

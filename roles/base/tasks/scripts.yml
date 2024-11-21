@@ -1,0 +1,4 @@
+- name: Get Variables
+  ansible.builtin.include_vars: vars/all.yml
+- name: Update apt
+  ansible.builtin.script: files/scripts/apt-update.sh
