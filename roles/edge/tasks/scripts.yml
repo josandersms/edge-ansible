@@ -8,3 +8,5 @@
   ansible.builtin.script: files/scripts/kubeconfig.sh
 - name: Sysctl updates
   ansible.builtin.script: files/scripts/performance.sh
+- name: Install Azure CLI
+  ansible.builtin.script: files/scripts/install-azure-cli.sh
