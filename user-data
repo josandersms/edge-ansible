@@ -1,0 +1,46 @@
+#cloud-config
+autoinstall:
+  version: 1
+  cloud_final_modules:
+  - ansible
+  - ubuntu_drivers
+  drivers:
+    install: true
+  identity:
+    hostname: nuc-edge-dfw
+    username: ecolab
+    # "ecolab12345" - created with `mkpasswd --method=SHA-512`
+    password: "$6$2hQrUco6IPiGo.rT$MO3EfPm6gGHuWeKusb2JTPGefa2AB6UKS5UHnpP5ZSZGtk93ATzkIkJjbb9Mx4DsCu9MC47PLMEFuQuvBQiSa0"
+  keyboard:
+    layout: us
+    toggle: null
+    variant: ""
+  late-commands:
+    - sed -ie 's/GRUB_TIMEOUT=.*/GRUB_TIMEOUT=5/' /target/etc/default/grub
+  locale: en_US
+  package_update: true
+  package_upgrade: true
+  packages:
+    - build-essential
+    - curl
+    - file
+    - git
+    - procps
+    - wget
+  ssh:
+    allow-pwd: true
+    emit_keys_to_console: false
+    install-server: true
+  # Enable reset partition
+  storage:
+    layout:
+      name: direct
+      reset-partition: true
+  user-data:
+    ansible:
+      install_method: distro
+      package_name: ansible-core
+      pull:
+        playbook_name: local.yml
+        url: "https://github.com/josandersms/edge-ansible.git"
+    timezone: America/Chicago
