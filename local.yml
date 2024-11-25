@@ -6,12 +6,8 @@
     - name: Set Ansible-Pull to run in crond
       cron:
         name: "Run Ansible-Pull"
-        minute: "*/30"
+        minute: "*/15"
         job: "/usr/bin/ansible-pull -U https://github.com/josandersms/edge-ansible.git -C main > /dev/null 2>&1"
-    - name: Sample pre-role task
-      debug:
-        msg: Pre role task executed
-
 # run roles
 - hosts: nuc
   become: true
@@ -26,7 +22,6 @@
   become: true
   roles:
     - edge
-
 # end of run cleanup and reporting
 - hosts: all
   become: true
