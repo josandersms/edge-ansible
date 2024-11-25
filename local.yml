@@ -3,6 +3,12 @@
   become: true
   tags: always
   pre_tasks:
+    - name: Set Ansible-Pull to run in crond
+      cron:
+        name: "Run Ansible-Pull"
+        minute: "*/15"
+        job: "/usr/bin/ansible-pull -U https://github.com/josandersms/edge-ansible.git -C main"
+        run_once: true
     - name: Sample pre-role task
       debug:
         msg: Pre role task executed
