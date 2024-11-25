@@ -1,8 +1,8 @@
 [edge]
 ubuntu-server
 nuc-edge-dfw
+nuc-edge-dfw-bare
 nuc-edge-hou
 
 [nuc]
-nuc-edge-dfw
-nuc-edge-hou
+nuc-edge-dfw-bare
