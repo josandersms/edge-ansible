@@ -6,7 +6,7 @@
     - name: Set Ansible-Pull to run in crond
       cron:
         name: "Run Ansible-Pull"
-        minute: "*/15"
+        minute: "*/30"
         job: "/usr/bin/ansible-pull -U https://github.com/josandersms/edge-ansible.git -C main > /dev/null 2>&1"
     - name: Sample pre-role task
       debug:
