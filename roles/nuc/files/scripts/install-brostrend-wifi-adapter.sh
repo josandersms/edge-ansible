@@ -1,6 +1,3 @@
-# Just to ensure no issues when running the inistall if dpkg was interrupted at some point prior
-sudo dpkg --configure  -a
-
 # Download and install drivers
 sh -c 'wget linux.brostrend.com/install -O /tmp/install && sh /tmp/install'
 
