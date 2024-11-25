@@ -2,3 +2,7 @@
 ubuntu-server
 nuc-edge-dfw
 nuc-edge-hou
+
+[nuc]
+nuc-edge-dfw
+nuc-edge-hou

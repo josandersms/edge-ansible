@@ -1,0 +1,7 @@
+- name: Copy how-to-wifi-connect.txt
+  ansible.builtin.copy:
+    src: files/misc/how-to-wifi-connect.txt
+    dest: "/home/{{ admin_username }}/how-to-wifi-connect.txt"
+    owner: "{{ admin_username }}"
+    group: "{{ admin_username }}"
+    mode: '0774'

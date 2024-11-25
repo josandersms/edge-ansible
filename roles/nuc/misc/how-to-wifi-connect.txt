@@ -1,0 +1,7 @@
+To connect to a wifi network issue one of the following commands.
+
+To be prompted for the password:
+nmcli -a d wifi connect <NETWORK NAME HERE>
+
+To include the password in the command line (unset HISTFILE prevents the password from being saved in .bash_history):
+unset HISTFILE && nmcli d wifi connect <NETWORK NAME HERE> password <WIFI PASSWORD HERE>

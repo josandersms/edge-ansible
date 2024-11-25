@@ -1,0 +1,3 @@
+---
+- name: Install BrosTrend WIFI Adapter
+  ansible.builtin.script: files/scripts/install-brostrend-wifi-adapter.sh

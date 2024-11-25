@@ -8,6 +8,11 @@
         msg: Pre role task executed
 
 # run roles
+- hosts: nuc
+  become: true
+  roles:
+    - nuc
+  run_once: true
 - hosts: all
   # tags: base
   become: true
